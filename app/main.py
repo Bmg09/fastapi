@@ -4,7 +4,8 @@ from .database import engine
 from . routers import post,user,auth,vote
 from .config import settings
 #what is cors? 
-#CORS is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
+#CORS is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. 
+# A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -32,10 +33,9 @@ app.add_middleware(
 #pydantic validator for the request body 
 #database connection realdictcursor is used to return the result as a dictionary with column names as keys
 
-    
-app.include_router(post.router)
+app.include_router(auth.router)    
 app.include_router(user.router)
-app.include_router(auth.router)
+app.include_router(post.router)
 app.include_router(vote.router)
 #CRUD operations
 
