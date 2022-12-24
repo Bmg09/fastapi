@@ -1,0 +1,4 @@
+{
+    "editor.acceptSuggestionOnEnter": "on",
+    "python.analysis.typeCheckingMode": "off"
+}
