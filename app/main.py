@@ -6,12 +6,31 @@ from .config import settings
 #what is cors? 
 #CORS is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. 
 # A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
-
 from fastapi.middleware.cors import CORSMiddleware
 
+description = """
+This API helps you do awesome stuff. 🚀 like you create posts, view posts,update posts,delete them,Vote them.
+## Items
+
+You can **read items**.
+
+## Users
+
+You will be able to:
+
+* **Create users** .
+* **Read users** .
+* **Login user**.
+* **Create Post**.
+* **Update Post**.
+* **Delete Post**.
+* **View Post**.
+
+Some routes are protected unless you login you won't be able to access the data.
+"""
 # model.Base.metadata.create_all(bind=engine)
 #fastapi app instance 
-app = FastAPI()
+app = FastAPI(title="Simple Twitter like application",description=description)
 origins = ["*"]
 
 app.add_middleware(
