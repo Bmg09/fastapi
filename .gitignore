@@ -3,4 +3,4 @@ venv/
 .env
 target
 Dockerfile
-*.yml
+docker-compose.yml
