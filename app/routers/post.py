@@ -13,7 +13,7 @@ router = APIRouter(
 
 #retrieve all posts
 @router.get("/",response_model=List[schemas.PostOut])
-def get_posts(db: Session = Depends(get_db),user : int = Depends(oauth2.get_current_user),limit:int=10,skip:int=0,search:Optional[str]=""):#limit is used as query string parameter
+def get_posts(db: Session = Depends(get_db),limit:int=10,skip:int=0,search:Optional[str]=""):#limit is used as query string parameter
     # cursor.execute("SELECT * FROM posts")
     # post = cursor.fetchall()
     post = db.query(model.Post).filter(model.Post.title.contains(search)).limit(limit).offset(skip).all()
